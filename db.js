@@ -3,9 +3,12 @@
 // After writing all code to make the connection , we need to export this file to our main nodejs file to connect with MongoDB.
 
 const mongoose = require('mongoose');  //here we import the mongoose library.
+require('dotenv').config();  // we need to import dotenv also here so we can process it.
 
 //Define the mongodb connection URL
-const mongoURL = 'mongodb://127.0.0.1:27017/hotels'  // here we replace mydayabse with our databse name that we want.
+// const mongoURL = 'mongodb://127.0.0.1:27017/hotels'  // here we replace mydatabse with our database name that we want.(this URL for local database server.)
+
+const mongoURL = process.env.MONGODB_URL;  //we use this to get that URL from .env file SO, our atlas string/url stays sequred.
 
 // set up mongoDB connection:-
 
