@@ -16,7 +16,7 @@ passport.use(new LocalStrategy(async (username, password, done) => {
              console.log(" Username not found");
             return done(null, false, {message: 'Incorrect Username'});
           }
-          const isPasswordmatch = user.password === password ? true:false;
+          const isPasswordmatch = await user.comparePassword(password);   // we need to create this comparepassword methhod on our schema/model file to attach this methhod with schema. 
           //  console.log("Password match:", isPasswordmatch);
 
           if (isPasswordmatch) {
