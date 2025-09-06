@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
 
   try {
-    const data = await person.find();
+    const data = await person.findOne({username : req.user.username});
     console.log('data fatched');
     res.status(200).json(data);
 
